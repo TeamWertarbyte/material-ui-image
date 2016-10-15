@@ -1,85 +1,42 @@
-# Material AutoRotatingCarousel
+# Material UI Image
 
-So you wrote a great app and deployed it and everything. But how do you introduce new users to your app? Well, the Material design guidelines have a solution: Displaying the top benefits in a beautiful [auto-rotating carousel](https://material.google.com/growth-communications/onboarding.html#onboarding-top-user-benefits)! 
-
-This project implements such a carousel for [material-ui](https://material-ui.com). See [the storybook](https://teamwertarbyte.github.io/material-auto-rotating-carousel) for an interactive demo.
+Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
 
 ## Installation
 ```shell
-npm i --save material-auto-rotating-carousel
-npm i --save react-swipeable-views react-motion
+npm i --save material-ui-image
 ```
 
 ## Usage
 
-The usage is similar to the usage of [Material UI's tabs](http://www.material-ui.com/#/components/tabs).
-Create AutoRotatingCarousel as a main frame and add Slides as children.
+Use this component just like a regular img tag.
 
 ```js
-import { AutoRotatingCarousel, Slide } from 'material-auto-rotating-carousel'
-import { green400, green600, blue400, blue600, red400, red600 } from 'material-ui/styles/colors'
+import { Image } from 'material-ui-image'
 
 // ...
 
 render() {
   return (
     <div>
-      <AutoRotatingCarousel
-        label="Get started"
-        open
-      >
-        <Slide
-          media={<img src="http://www.icons101.com/icon_png/size_256/id_79394/youtube.png" />}
-          mediaBackgroundStyle={{ backgroundColor: red400 }}
-          contentStyle={{ backgroundColor: red600 }}
-          title="This is a very cool feature"
-          subtitle="Just using this will blow your mind."
-        />
-        <Slide
-          media={<img src="http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png" />}
-          mediaBackgroundStyle={{ backgroundColor: blue400 }}
-          contentStyle={{ backgroundColor: blue600 }}
-          title="Ever wanted to be popular?"
-          subtitle="Well just mix two colors and your are good to go!"
-        />
-        <Slide
-          media={<img src="http://www.icons101.com/icon_png/size_256/id_76704/Google_Settings.png" />}
-          mediaBackgroundStyle={{ backgroundColor: green400 }}
-          contentStyle={{ backgroundColor: green600 }}
-          title="May the force be with you"
-          subtitle="The Force is a metaphysical and ubiquitous power in the Star Wars universe."
-        />
-      </AutoRotatingCarousel>
+      <Image
+        src="http://loremflickr.com/300/200"
+      />
     </div>
   )
 }
 ```
 
-### AutoRotatingCarousel Properties
+### Material UI Image Properties
 
-|Name            |Type        |Default     |Description
-|----------------|------------|------------|--------------------------------
-|autoplay        | `bool`     | `true`     | If `false`, the auto play behavior is disabled.
-|interval        | `integer`  | `3000`     | Delay between auto play transitions (in ms).
-|label*          | `string`   |            | Button text.
-|landscape       | `bool`     |            | If `true`, slide will adjust content for wide mobile screens.
-|mobile          | `bool`     | `false`    | If `true`, the screen width and height is filled.
-|open            | `bool`     | `false`    | Controls whether the AutoRotatingCarousel is opened or not.
-|onStart         | `function` |            | Fired when the user clicks the getting started button.
-
-### Slide Properties
-
-|Name                   |Type       |Default      |Description
-|-----------------------|-----------|-------------|--------------------------------
-|contentStyle           | `object`  |             | Override the inline-styles of the content.
-|media*                 | `node`    |             | Object to display in the upper half.
-|mediaBackgroundStyle   | `object`  |             | Override the inline-styles of the media container.
-|mediaStyle             | `object`  |             | Override the inline-styles of the media.
-|subtitle*              | `string`  |             | Subtitle for the slide.
-|subtitleStyle          | `object`  |             | Override the inline-styles of the subtitle.
-|textStyle              | `object`  |             | Override the inline-styles of the text container.
-|title*                 | `string`  |             | Title for the slide.
-|titleStyle             | `object`  |             | Override the inline-styles of the title.
+|Name            |Type        |Default                                   |Description
+|----------------|------------|------------------------------------------|--------------------------------
+|src*            | `string`   |                                          | Specifies the URL of an image.
+|imageStyle      | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
+|loadingSize     | `integer`  | 40                                       | Set the size of the refresh indicator.
+|loadingStyle    | `object`   | { position: 'relative' }                 | Override the inline-styles of the refresh indicator.
+|onTouchTap      | `func`     |                                          | Fired when the user clicks on the image happened.
+|style           | `object`   | { width: 300, height: 200 }              | Override the inline-styles of the root element.
 
 \* required property
 
