@@ -28,11 +28,11 @@ export class Image extends Component {
   }
 
   render() {
-    const { imageStyle, src, style, loadingSize, loadingStyle } = this.props
+    const { disableSpinner, imageStyle, src, style, loadingSize, loadingStyle } = this.props
 
     return (
       <div style={{ ...styles.root, backgroundColor: this.getRandomColor(), ...style }}>
-        {!this.state.imageLoaded && !this.state.imageError ?
+        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ?
           <RefreshIndicator
             size={loadingSize}
             left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}
@@ -56,11 +56,13 @@ export class Image extends Component {
 }
 
 Image.defaultProps = {
+  disableSpinner: false,
   loadingSize: 40
 }
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,
+  disableSpinner: PropTypes.bool,
   onTouchTap: PropTypes.func,
   style: PropTypes.object,
   imageStyle: PropTypes.object,

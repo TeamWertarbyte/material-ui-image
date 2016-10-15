@@ -32,6 +32,7 @@ render() {
 |Name            |Type        |Default                                   |Description
 |----------------|------------|------------------------------------------|--------------------------------
 |src*            | `string`   |                                          | Specifies the URL of an image.
+|disableSpinner  | `bool`     | false                                    | Disables the loading spinner if set to `true`.
 |imageStyle      | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
 |loadingSize     | `integer`  | 40                                       | Set the size of the refresh indicator.
 |loadingStyle    | `object`   | { position: 'relative' }                 | Override the inline-styles of the refresh indicator.
