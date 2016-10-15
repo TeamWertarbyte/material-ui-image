@@ -1,21 +1,43 @@
 import React from 'react'
-import { storiesOf, action, linkTo } from '@kadira/storybook'
-import { green400, green600, blue400, blue600, red400, red600 } from 'material-ui/styles/colors'
+import { storiesOf } from '@kadira/storybook'
 import { Image } from '../src'
 import { themed } from './storyUtil'
 
+storiesOf('ImageGrid', module)
+  .add('normal', () => themed(
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {[...Array(10)].map((x, i) =>
+        <Image
+          key={i + 1}
+          src="http://loremflickr.com/300/200"
+          style={{ position: 'relative', margin: 4 }}
+        />
+      )}
+    </div>
+  ))
+  .add('loading', () => themed(
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {[...Array(10)].map((x, i) =>
+        <Image
+          key={i + 1}
+          style={{ position: 'relative', margin: 4 }}
+        />
+      )}
+    </div>
+  ))
+
 storiesOf('Image', module)
+  .add('normal', () => themed(
+    <Image
+      src="http://loremflickr.com/300/200"
+    />
+  ))
   .add('loading', () => themed(
     <Image
     />
   ))
-  .add('normal', () => themed(
-    <Image
-      src="http://lorempixel.com/g/400/200"
-    />
-  ))
   .add('error', () => themed(
     <Image
-      src="http://lorjjempixel.com/g/400/200"
+      src="http://loremflickrs.com/300/200"
     />
   ))
