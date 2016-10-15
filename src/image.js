@@ -31,7 +31,7 @@ export class Image extends Component {
     const { imageStyle, src, style, loadingSize, loadingStyle } = this.props
 
     return (
-      <div style={{ ...styles.root, ...style, backgroundColor: this.getRandomColor() }}>
+      <div style={{ ...styles.root, backgroundColor: this.getRandomColor(), ...style }}>
         {!this.state.imageLoaded && !this.state.imageError ?
           <RefreshIndicator
             size={loadingSize}
@@ -45,7 +45,7 @@ export class Image extends Component {
           <img
             {...this.props}
             onClick={this.props.onTouchTap}
-            style={{ ...styles.img, ...imageStyle }}
+            style={{ ...styles.img, opacity: !this.state.imageLoaded ? 0 : 1, transition: 'opacity 300ms ease-in-out', ...imageStyle }}
             onLoad={() => this.setState({ imageLoaded: true })}
             onError={() => this.setState({ imageError: true })}
           /> : null
