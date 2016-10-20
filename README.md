@@ -2,6 +2,8 @@
 
 Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
 
+See [the storybook](https://teamwertarbyte.github.io/material-ui-image) for a demo.
+
 ## Installation
 ```shell
 npm i --save material-ui-image
