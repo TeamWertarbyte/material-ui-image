@@ -1,7 +1,11 @@
 import React, { Component, PropTypes } from 'react'
-import _ from 'underscore'
 import { RefreshIndicator } from 'material-ui'
 import * as colors from 'material-ui/styles/colors'
+
+function getRandomColor() {
+  const colorNames = Object.keys(colors)
+  return colors[colorNames[Math.floor(colorNames.length * Math.random())]]
+}
 
 const styles = {
   root: {
@@ -25,7 +29,7 @@ export class Image extends Component {
 
   componentWillMount(){
     this.setState({
-      color: _.sample(colors)
+      color: getRandomColor()
     })
   }
 
