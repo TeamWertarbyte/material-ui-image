@@ -55,7 +55,7 @@ export class Image extends Component {
           <img
             {...this.props}
             onClick={this.props.onTouchTap}
-            style={{ ...styles.img, opacity: !this.state.imageLoaded ? 0 : 1, transition: 'opacity 300ms ease-in-out', ...imageStyle }}
+            style={{ ...styles.img, opacity: !this.state.imageLoaded ? 0 : 1, transition: 'all 400ms cubic-bezier(0.4, 0.0, 0.2, 1)', ...imageStyle }}
             onLoad={() => this.setState({ imageLoaded: true })}
             onError={() => this.setState({ imageError: true })}
           /> : null
