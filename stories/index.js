@@ -2,11 +2,18 @@ import React from 'react'
 import { storiesOf } from '@kadira/storybook'
 import { Image } from '../src'
 import { themed } from './storyUtil'
+import * as colors from 'material-ui/styles/colors'
 
 storiesOf('Image', module)
   .add('normal', () => themed(
     <Image
       src="http://loremflickr.com/300/200"
+    />
+  ))
+  .add('normal custom color red', () => themed(
+    <Image
+      src="http://loremflickr.com/300/200"
+      color={colors.red900}
     />
   ))
   .add('normal without spinner', () => themed(
@@ -30,9 +37,20 @@ storiesOf('ImageGrid', module)
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {[...Array(10)].map((x, i) =>
         <Image
+          src="http://loremflickr.com/300/200"
+          style={{ position: 'relative', margin: 4 }}
+        />
+      )}
+    </div>
+  ))
+  .add('normal custom color red', () => themed(
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {[...Array(10)].map((x, i) =>
+        <Image
           key={i + 1}
           src="http://loremflickr.com/300/200"
           style={{ position: 'relative', margin: 4 }}
+          color={colors.red900}
         />
       )}
     </div>
