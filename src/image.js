@@ -24,13 +24,17 @@ const styles = {
 export class Image extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      color: getRandomColor()
+    }
   }
 
-  componentWillMount(){
-    this.setState({
-      color: getRandomColor()
-    })
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.src !== this.props.src) {
+      this.setState({
+        color: getRandomColor()
+      })
+    }
   }
 
   render() {
