@@ -32,7 +32,9 @@ render() {
 |Name            |Type        |Default                                   |Description
 |----------------|------------|------------------------------------------|--------------------------------
 |src*            | `string`   |                                          | Specifies the URL of an image.
+|disableError    | `bool`     | false                                    | Disables the error icon if set to `true`.
 |disableSpinner  | `bool`     | false                                    | Disables the loading spinner if set to `true`.
+|errorSize       | `integer`  | 48                                       | Set the size of the error icon.
 |imageStyle      | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
 |loadingSize     | `integer`  | 40                                       | Set the size of the refresh indicator.
 |loadingStyle    | `object`   | { position: 'relative' }                 | Override the inline-styles of the refresh indicator.
