@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { RefreshIndicator } from 'material-ui'
 import { ImageBrokenImage } from 'material-ui/svg-icons'
 import * as colors from 'material-ui/styles/colors'
+import './style.css'
 
 function getRandomColor() {
   const colorNames = Object.keys(colors)
@@ -38,6 +39,10 @@ export class Image extends Component {
     }
   }
 
+  imageLoaded() {
+    this.setState({ imageLoaded: true })
+  }
+
   render() {
     const { color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle } = this.props
     return (
@@ -67,8 +72,14 @@ export class Image extends Component {
           <img
             {...this.props}
             onClick={this.props.onTouchTap}
-            style={{ ...styles.img, opacity: !this.state.imageLoaded ? 0 : 1, transition: 'all 400ms cubic-bezier(0.4, 0.0, 0.2, 1)', ...imageStyle }}
-            onLoad={() => this.setState({ imageLoaded: true })}
+            style={{
+              ...styles.img,
+              opacity: !this.state.imageLoaded ? 0 : 1,
+              animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
+              ...imageStyle
+            }}
+
+            onLoad={() => this.imageLoaded()}
             onError={() => this.setState({ imageError: true })}
           /> : null
         }
