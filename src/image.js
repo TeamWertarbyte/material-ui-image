@@ -1,8 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import _ from 'underscore'
 import { RefreshIndicator } from 'material-ui'
 import { ImageBrokenImage } from 'material-ui/svg-icons'
 import * as colors from 'material-ui/styles/colors'
+
+function getRandomColor() {
+  const colorNames = Object.keys(colors)
+  return colors[colorNames[Math.floor(colorNames.length * Math.random())]]
+}
 
 const styles = {
   root: {
@@ -21,17 +25,23 @@ const styles = {
 export class Image extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      color: getRandomColor()
+    }
   }
 
-  getRandomColor() {
-    return _.sample(colors)
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.src !== this.props.src) {
+      this.setState({
+        color: getRandomColor()
+      })
+    }
   }
 
   render() {
-    const { disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle } = this.props
+    const { color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle } = this.props
     return (
-      <div style={{ ...styles.root, backgroundColor: this.getRandomColor(), ...style }}>
+      <div style={{ ...styles.root, backgroundColor: color || this.state.color, ...style }}>
         {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ?
           <RefreshIndicator
             size={loadingSize}
@@ -57,11 +67,7 @@ export class Image extends Component {
           <img
             {...this.props}
             onClick={this.props.onTouchTap}
-            style={{
-              ...styles.img,
-              opacity: !this.state.imageLoaded ? 0 : 1,
-              transition: 'opacity 300ms ease-in-out', ...imageStyle
-            }}
+            style={{ ...styles.img, opacity: !this.state.imageLoaded ? 0 : 1, transition: 'all 400ms cubic-bezier(0.4, 0.0, 0.2, 1)', ...imageStyle }}
             onLoad={() => this.setState({ imageLoaded: true })}
             onError={() => this.setState({ imageError: true })}
           /> : null
@@ -81,11 +87,12 @@ Image.defaultProps = {
 Image.propTypes = {
   src: PropTypes.string.isRequired,
   disableError: PropTypes.bool,
+  color: PropTypes.string,
   disableSpinner: PropTypes.bool,
   errorSize: PropTypes.number,
   imageStyle: PropTypes.object,
   loadingSize: PropTypes.number,
   loadingStyle: PropTypes.object,
   onTouchTap: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.object
 }

@@ -1,6 +1,8 @@
-# Material UI Image
+# Material UI Image [![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-image.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-image)
 
 Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
+
+See [the storybook](https://teamwertarbyte.github.io/material-ui-image) for a demo.
 
 ## Installation
 ```shell
@@ -32,6 +34,7 @@ render() {
 |Name            |Type        |Default                                   |Description
 |----------------|------------|------------------------------------------|--------------------------------
 |src*            | `string`   |                                          | Specifies the URL of an image.
+|color           | `string`   | random color                             | Override the background color.
 |disableError    | `bool`     | false                                    | Disables the error icon if set to `true`.
 |disableSpinner  | `bool`     | false                                    | Disables the loading spinner if set to `true`.
 |errorSize       | `integer`  | 48                                       | Set the size of the error icon.
