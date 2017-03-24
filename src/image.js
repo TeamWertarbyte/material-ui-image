@@ -2,9 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { RefreshIndicator } from 'material-ui'
 import { ImageBrokenImage } from 'material-ui/svg-icons'
 import * as colors from 'material-ui/styles/colors'
-import './style.css'
 
-function getRandomColor() {
+function getRandomColor () {
   const colorNames = Object.keys(colors)
   return colors[colorNames[Math.floor(colorNames.length * Math.random())]]
 }
@@ -24,14 +23,14 @@ const styles = {
 }
 
 export class Image extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       color: getRandomColor()
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.src !== this.props.src) {
       this.setState({
         color: getRandomColor()
@@ -39,49 +38,45 @@ export class Image extends Component {
     }
   }
 
-  imageLoaded() {
-    this.setState({ imageLoaded: true })
+  imageLoaded () {
+    this.setState({imageLoaded: true})
   }
 
-  render() {
-    const { color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle } = this.props
+  render () {
+    const {color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle} = this.props
     return (
-      <div style={{ ...styles.root, backgroundColor: color || this.state.color, ...style }}>
-        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ?
-          <RefreshIndicator
-            size={loadingSize}
-            left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}
-            top={style && style.height ? (style.height / 2) - (loadingSize) : styles.root.height / 2 - (loadingSize / 2)}
-            status="loading"
-            style={{ ...styles.loading, ...loadingStyle }}
-          /> : null
+      <div style={{...styles.root, backgroundColor: color || this.state.color, ...style}}
+           onClick={this.props.onTouchTap}>
+        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ? <RefreshIndicator
+          size={loadingSize}
+          left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}
+          top={style && style.height ? (style.height / 2) - (loadingSize) : styles.root.height / 2 - (loadingSize / 2)}
+          status="loading"
+          style={{...styles.loading, ...loadingStyle}}
+        /> : null
         }
-        {!disableError && this.state.imageError ?
-          <div style={{
-            position: 'relative',
-            left: (style && style.width ? (style.width / 2) - (errorSize) : styles.root.width / 2 - (errorSize / 2)),
-            top: (style && style.height ? (style.height / 2) - (errorSize) : styles.root.height / 2 - (errorSize / 2))
-          }}>
-            <ImageBrokenImage
-              color={colors.grey300}
-              style={{ width: errorSize, height: errorSize }}
-            />
-          </div> : null
+        {!disableError && this.state.imageError ? <div style={{
+          position: 'relative',
+          left: (style && style.width ? (style.width / 2) - (errorSize) : styles.root.width / 2 - (errorSize / 2)),
+          top: (style && style.height ? (style.height / 2) - (errorSize) : styles.root.height / 2 - (errorSize / 2))
+        }}>
+          <ImageBrokenImage
+            color={colors.grey300}
+            style={{width: errorSize, height: errorSize}}
+          />
+        </div> : null
         }
-        {src && !this.state.imageError ?
-          <img
-            {...this.props}
-            onClick={this.props.onTouchTap}
-            style={{
-              ...styles.img,
-              opacity: !this.state.imageLoaded ? 0 : 1,
-              animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
-              ...imageStyle
-            }}
-
-            onLoad={() => this.imageLoaded()}
-            onError={() => this.setState({ imageError: true })}
-          /> : null
+        {src && !this.state.imageError ? <img
+          {...this.props}
+          style={{
+            ...styles.img,
+            opacity: !this.state.imageLoaded ? 0 : 1,
+            animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
+            ...imageStyle
+          }}
+          onLoad={() => this.imageLoaded()}
+          onError={() => this.setState({imageError: true})}
+        /> : null
         }
       </div>
     )
