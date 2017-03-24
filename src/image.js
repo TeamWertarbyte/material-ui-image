@@ -46,7 +46,7 @@ export class Image extends Component {
     const {color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle, onTouchTap, ...image} = this.props
     return (
       <div style={{...styles.root, backgroundColor: color || this.state.color, ...style}}
-           onClick={onTouchTap}>
+           onTouchTap={onTouchTap}>
         {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ? <RefreshIndicator
           size={loadingSize}
           left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}

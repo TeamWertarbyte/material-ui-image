@@ -8,32 +8,32 @@ storiesOf('Image', module)
   .add('normal', () => themed(
     <Image
       src="http://loremflickr.com/300/200"
-      onTouchTap={action('onClick')}
+      onTouchTap={action('onTouchTap')}
     />
   ))
   .add('normal custom color red', () => themed(
     <Image
       src="http://loremflickr.com/300/200"
       color={colors.red900}
-      onTouchTap={action('onClick')}
+      onTouchTap={action('onTouchTap')}
     />
   ))
   .add('normal without spinner', () => themed(
     <Image
       src="http://loremflickr.com/300/200"
       disableSpinner
-      onTouchTap={action('onClick')}
+      onTouchTap={action('onTouchTap')}
     />
   ))
   .add('loading', () => themed(
     <Image
-      onTouchTap={action('onClick')}
+      onTouchTap={action('onTouchTap')}
     />
   ))
   .add('error', () => themed(
     <Image
       src="http://loremflickrs.com/300/200"
-      onTouchTap={action('onClick')}
+      onTouchTap={action('onTouchTap')}
     />
   ))
 
@@ -44,7 +44,7 @@ storiesOf('ImageGrid', module)
         <Image
           src="http://loremflickr.com/300/200"
           style={{ position: 'relative', margin: 4 }}
-          onTouchTap={action('onClick')}
+          onTouchTap={action('onTouchTap')}
         />
       )}
     </div>
@@ -57,7 +57,7 @@ storiesOf('ImageGrid', module)
           src="http://loremflickr.com/300/200"
           style={{ position: 'relative', margin: 4 }}
           color={colors.red900}
-          onTouchTap={action('onClick')}
+          onTouchTap={action('onTouchTap')}
         />
       )}
     </div>
@@ -70,7 +70,7 @@ storiesOf('ImageGrid', module)
           src="http://loremflickr.com/300/200"
           disableSpinner
           style={{ position: 'relative', margin: 4 }}
-          onTouchTap={action('onClick')}
+          onTouchTap={action('onTouchTap')}
         />
       )}
     </div>
@@ -81,7 +81,7 @@ storiesOf('ImageGrid', module)
         <Image
           key={i + 1}
           style={{ position: 'relative', margin: 4 }}
-          onTouchTap={action('onClick')}
+          onTouchTap={action('onTouchTap')}
         />
       )}
     </div>
