@@ -38,35 +38,53 @@ export class Image extends Component {
     }
   }
 
-  imageLoaded () {
-    this.setState({imageLoaded: true})
-  }
-
   render () {
-    const {color, disableError, disableSpinner, errorSize, imageStyle, style, loadingSize, loadingStyle, onTouchTap, ...image} = this.props
+    const {
+      color,
+      disableError,
+      disableSpinner,
+      errorSize,
+      imageStyle,
+      style,
+      loadingSize,
+      loadingStyle,
+      onTouchTap,
+      ...image
+    } = this.props
+
     return (
-      <div style={{...styles.root, backgroundColor: color || this.state.color, ...style}}
-           onTouchTap={onTouchTap}>
-        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError ? <RefreshIndicator
+      <div
+        style={{
+          ...styles.root,
+          backgroundColor: color || this.state.color,
+          ...style
+        }}
+        onTouchTap={onTouchTap}
+      >
+        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <RefreshIndicator
           size={loadingSize}
           left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}
           top={style && style.height ? (style.height / 2) - (loadingSize) : styles.root.height / 2 - (loadingSize / 2)}
           status="loading"
-          style={{...styles.loading, ...loadingStyle}}
-        /> : null
-        }
-        {!disableError && this.state.imageError ? <div style={{
+          style={{
+            ...styles.loading,
+            ...loadingStyle
+          }}
+        />}
+        {!disableError && this.state.imageError && <div style={{
           position: 'relative',
           left: (style && style.width ? (style.width / 2) - (errorSize) : styles.root.width / 2 - (errorSize / 2)),
           top: (style && style.height ? (style.height / 2) - (errorSize) : styles.root.height / 2 - (errorSize / 2))
         }}>
           <ImageBrokenImage
             color={colors.grey300}
-            style={{width: errorSize, height: errorSize}}
+            style={{
+              width: errorSize,
+              height: errorSize
+            }}
           />
-        </div> : null
-        }
-        {image.src && !this.state.imageError ? <img
+        </div>}
+        {image.src && !this.state.imageError && <img
           {...image}
           style={{
             ...styles.img,
@@ -74,10 +92,9 @@ export class Image extends Component {
             animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
             ...imageStyle
           }}
-          onLoad={() => this.imageLoaded()}
+          onLoad={() => this.setState({imageLoaded: true})}
           onError={() => this.setState({imageError: true})}
-        /> : null
-        }
+        />}
       </div>
     )
   }
