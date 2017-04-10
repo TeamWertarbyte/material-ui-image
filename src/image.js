@@ -43,7 +43,7 @@ export class Image extends Component {
   }
 
   render () {
-    const {color, disableError, disableSpinner, errorSize, imageStyle, src, style, loadingSize, loadingStyle, onTouchTap, ...image} = this.props
+    const {color, disableError, disableSpinner, errorSize, imageStyle, style, loadingSize, loadingStyle, onTouchTap, ...image} = this.props
     return (
       <div style={{...styles.root, backgroundColor: color || this.state.color, ...style}}
            onTouchTap={onTouchTap}>
@@ -66,7 +66,7 @@ export class Image extends Component {
           />
         </div> : null
         }
-        {src && !this.state.imageError ? <img
+        {image.src && !this.state.imageError ? <img
           {...image}
           style={{
             ...styles.img,
