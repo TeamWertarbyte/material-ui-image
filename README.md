@@ -1,4 +1,7 @@
-# Material UI Image [![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-image.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-image)
+# Material UI Image
+
+[![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-image.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-image)
+[![Greenkeeper badge](https://badges.greenkeeper.io/TeamWertarbyte/material-ui-image.svg)](https://greenkeeper.io/)
 
 Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
 
