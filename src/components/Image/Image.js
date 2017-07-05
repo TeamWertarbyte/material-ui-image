@@ -23,6 +23,10 @@ const styles = {
   }
 }
 
+/**
+ * Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
+ * @see [Image loading patterns](https://material.io/guidelines/patterns/loading-images.html)
+ */
 export default class Image extends Component {
   constructor (props) {
     super(props)
@@ -109,14 +113,24 @@ Image.defaultProps = {
 }
 
 Image.propTypes = {
+  /** Specifies the URL of an image. */
   src: PropTypes.string.isRequired,
-  disableError: PropTypes.bool,
+  /** Override the background color. */
   color: PropTypes.string,
+  /** Disables the error icon if set to true. */
+  disableError: PropTypes.bool,
+  /** Disables the loading spinner if set to true. */
   disableSpinner: PropTypes.bool,
+  /** Set the size of the error icon. */
   errorSize: PropTypes.number,
+  /** Override the inline-styles of the image. */
   imageStyle: PropTypes.object,
+  /** Set the size of the refresh indicator. */
   loadingSize: PropTypes.number,
+  /** Override the inline-styles of the refresh indicator. */
   loadingStyle: PropTypes.object,
+  /** Fired when the user clicks on the image happened. */
   onTouchTap: PropTypes.func,
+  /** Override the inline-styles of the root element. */
   style: PropTypes.object
 }
