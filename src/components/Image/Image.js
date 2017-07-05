@@ -33,7 +33,7 @@ export default class Image extends Component {
     const {
       color,
       errorSize,
-      style,
+      style
     } = this.props
 
     const styles = {
@@ -69,8 +69,10 @@ export default class Image extends Component {
     const styles = this.getStyles()
 
     const {
+      color,
       disableError,
       disableSpinner,
+      errorSize,
       imageStyle,
       style,
       loadingSize,
