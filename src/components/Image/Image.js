@@ -9,20 +9,6 @@ function getRandomColor () {
   return colors[colorNames[Math.floor(colorNames.length * Math.random())]]
 }
 
-const styles = {
-  root: {
-    width: 300,
-    height: 200
-  },
-  loading: {
-    position: 'relative'
-  },
-  img: {
-    width: 'inherit',
-    height: 'inherit'
-  }
-}
-
 /**
  * Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
  * @see [Image loading patterns](https://material.io/guidelines/patterns/loading-images.html)
@@ -43,12 +29,48 @@ export default class Image extends Component {
     }
   }
 
-  render () {
+  getStyles () {
     const {
       color,
+      errorSize,
+      style,
+    } = this.props
+
+    const styles = {
+      root: {
+        width: 300,
+        height: 200,
+        backgroundColor: color || this.state.color,
+      },
+      loading: {
+        position: 'relative'
+      },
+      img: {
+        width: 'inherit',
+        height: 'inherit',
+        opacity: !this.state.imageLoaded ? 0 : 1,
+        animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
+      },
+      errorContainer: {
+        position: 'relative',
+        left: (style && style.width ? (style.width / 2) - (errorSize) : 300 / 2 - (errorSize / 2)),
+        top: (style && style.height ? (style.height / 2) - (errorSize) : 200 / 2 - (errorSize / 2))
+      },
+      errorIcon: {
+        width: errorSize,
+        height: errorSize
+      }
+    }
+
+    return styles
+  }
+
+  render () {
+    const styles = this.getStyles()
+
+    const {
       disableError,
       disableSpinner,
-      errorSize,
       imageStyle,
       style,
       loadingSize,
@@ -61,7 +83,6 @@ export default class Image extends Component {
       <div
         style={{
           ...styles.root,
-          backgroundColor: color || this.state.color,
           ...style
         }}
         onTouchTap={onTouchTap}
@@ -76,25 +97,16 @@ export default class Image extends Component {
             ...loadingStyle
           }}
         />}
-        {!disableError && this.state.imageError && <div style={{
-          position: 'relative',
-          left: (style && style.width ? (style.width / 2) - (errorSize) : styles.root.width / 2 - (errorSize / 2)),
-          top: (style && style.height ? (style.height / 2) - (errorSize) : styles.root.height / 2 - (errorSize / 2))
-        }}>
+        {!disableError && this.state.imageError && <div style={styles.errorContainer}>
           <ImageBrokenImage
             color={colors.grey300}
-            style={{
-              width: errorSize,
-              height: errorSize
-            }}
+            style={styles.errorIcon}
           />
         </div>}
         {image.src && !this.state.imageError && <img
           {...image}
           style={{
             ...styles.img,
-            opacity: !this.state.imageLoaded ? 0 : 1,
-            animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
             ...imageStyle
           }}
           onLoad={() => this.setState({imageLoaded: true})}
