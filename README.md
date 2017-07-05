@@ -17,7 +17,7 @@ npm i --save material-ui-image
 Use this component just like a regular img tag.
 
 ```js
-import { Image } from 'material-ui-image'
+import Image from 'material-ui-image'
 
 // ...
 

@@ -23,7 +23,7 @@ const styles = {
   }
 }
 
-export class Image extends Component {
+export default class Image extends Component {
   constructor (props) {
     super(props)
     this.state = {
