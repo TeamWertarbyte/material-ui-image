@@ -31,6 +31,7 @@ export default class Image extends Component {
 
   getStyles () {
     const {
+      aspectRatio,
       color,
       errorSize,
       style
@@ -38,23 +39,18 @@ export default class Image extends Component {
 
     const styles = {
       root: {
-        width: 300,
-        height: 200,
         backgroundColor: color || this.state.color,
-      },
-      loading: {
+        paddingTop: `calc(1 / ${aspectRatio} * 100%)`,
         position: 'relative'
       },
-      img: {
-        width: 'inherit',
-        height: 'inherit',
+      image: {
+        width: '100%',
+        height: '100%',
         opacity: !this.state.imageLoaded ? 0 : 1,
         animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
-      },
-      errorContainer: {
-        position: 'relative',
-        left: (style && style.width ? (style.width / 2) - (errorSize) : 300 / 2 - (errorSize / 2)),
-        top: (style && style.height ? (style.height / 2) - (errorSize) : 200 / 2 - (errorSize / 2))
+        position: 'absolute',
+        top: 0,
+        left: 0
       },
       errorIcon: {
         width: errorSize,
@@ -69,6 +65,7 @@ export default class Image extends Component {
     const styles = this.getStyles()
 
     const {
+      aspectRatio,
       color,
       disableError,
       disableSpinner,
@@ -89,37 +86,47 @@ export default class Image extends Component {
         }}
         onTouchTap={onTouchTap}
       >
-        {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <RefreshIndicator
-          size={loadingSize}
-          left={style && style.width ? (style.width / 2) - (loadingSize) : styles.root.width / 2 - (loadingSize / 2)}
-          top={style && style.height ? (style.height / 2) - (loadingSize) : styles.root.height / 2 - (loadingSize / 2)}
-          status="loading"
-          style={{
-            ...styles.loading,
-            ...loadingStyle
-          }}
-        />}
-        {!disableError && this.state.imageError && <div style={styles.errorContainer}>
-          <ImageBrokenImage
-            color={colors.grey300}
-            style={styles.errorIcon}
-          />
-        </div>}
-        {image.src && !this.state.imageError && <img
+        {image.src && !this.state.imageError ? <img
           {...image}
           style={{
-            ...styles.img,
+            ...styles.image,
             ...imageStyle
           }}
           onLoad={() => this.setState({imageLoaded: true})}
           onError={() => this.setState({imageError: true})}
-        />}
+        /> : <div style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <RefreshIndicator
+            size={loadingSize}
+            left={0}
+            top={0}
+            status="loading"
+            style={{
+              ...loadingStyle
+            }}
+          />}
+          {!disableError && this.state.imageError &&
+            <ImageBrokenImage
+              color={colors.grey300}
+              style={styles.errorIcon}
+            />
+         }
+        </div>}
       </div>
     )
   }
 }
 
 Image.defaultProps = {
+  aspect: 1,
   disableError: false,
   disableSpinner: false,
   errorSize: 48,
@@ -129,6 +136,8 @@ Image.defaultProps = {
 Image.propTypes = {
   /** Specifies the URL of an image. */
   src: PropTypes.string.isRequired,
+  /** Override aspect ratio. */
+  aspectRatio: PropTypes.number,
   /** Override the background color. */
   color: PropTypes.string,
   /** Disables the error icon if set to true. */
