@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { RefreshIndicator } from 'material-ui'
+import { CircularProgress } from 'material-ui'
 import { ImageBrokenImage } from 'material-ui/svg-icons'
 import * as colors from 'material-ui/styles/colors'
 
@@ -104,11 +104,8 @@ export default class Image extends Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <RefreshIndicator
+          {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <CircularProgress
             size={loadingSize}
-            left={0}
-            top={0}
-            status="loading"
             style={{
               ...loadingStyle
             }}
