@@ -37,6 +37,7 @@ render() {
 |Name            |Type        |Default                                   |Description
 |----------------|------------|------------------------------------------|--------------------------------
 |src*            | `string`   |                                          | Specifies the URL of an image.
+|aspectRatio     | `float`    | (1/1)                                    | Specifies the aspect ratio of the image.
 |color           | `string`   | random color                             | Override the background color.
 |disableError    | `bool`     | false                                    | Disables the error icon if set to `true`.
 |disableSpinner  | `bool`     | false                                    | Disables the loading spinner if set to `true`.
