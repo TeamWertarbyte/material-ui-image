@@ -123,7 +123,7 @@ export default class Image extends Component {
 }
 
 Image.defaultProps = {
-  aspect: 1,
+  aspectRatio: 1,
   disableError: false,
   disableSpinner: false,
   errorSize: 48,
