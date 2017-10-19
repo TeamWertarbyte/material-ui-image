@@ -1,10 +1,12 @@
 {
   "presets": [
     "es2015",
-    "stage-0",
-    "react"
+    "react",
+    "stage-0"
   ],
   "plugins": [
-    "material-ui"
+    ["direct-import", ["material-ui", "material-ui-icons"]],
+    "transform-runtime",
+    "transform-decorators-legacy"
   ]
 }

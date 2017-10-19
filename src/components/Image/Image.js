@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { CircularProgress } from 'material-ui'
-import { ImageBrokenImage } from 'material-ui/svg-icons'
-import * as colors from 'material-ui/styles/colors'
-
-function getRandomColor () {
-  const colorNames = Object.keys(colors)
-  return colors[colorNames[Math.floor(colorNames.length * Math.random())]]
-}
+import common from 'material-ui/colors/common'
+import grey from 'material-ui/colors/grey'
+import { BrokenImage } from 'material-ui-icons'
 
 /**
  * Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
@@ -16,17 +12,7 @@ function getRandomColor () {
 export default class Image extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      color: getRandomColor()
-    }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.src !== this.props.src) {
-      this.setState({
-        color: getRandomColor()
-      })
-    }
+    this.state = {}
   }
 
   getStyles () {
@@ -39,9 +25,10 @@ export default class Image extends Component {
 
     const styles = {
       root: {
-        backgroundColor: color || this.state.color,
+        backgroundColor: color,
         paddingTop: `calc(1 / ${aspectRatio} * 100%)`,
-        position: 'relative'
+        position: 'relative',
+        ...style
       },
       image: {
         width: '100%',
@@ -74,17 +61,14 @@ export default class Image extends Component {
       style,
       loadingSize,
       loadingStyle,
-      onTouchTap,
+      onClick,
       ...image
     } = this.props
 
     return (
       <div
-        style={{
-          ...styles.root,
-          ...style
-        }}
-        onTouchTap={onTouchTap}
+        style={styles.root}
+        onClick={onClick}
       >
         {image.src && !this.state.imageError ? <img
           {...image}
@@ -111,11 +95,11 @@ export default class Image extends Component {
             }}
           />}
           {!disableError && this.state.imageError &&
-            <ImageBrokenImage
-              color={colors.grey300}
-              style={styles.errorIcon}
-            />
-         }
+          <BrokenImage
+            color={grey[300]}
+            style={styles.errorIcon}
+          />
+          }
         </div>}
       </div>
     )
@@ -124,6 +108,7 @@ export default class Image extends Component {
 
 Image.defaultProps = {
   aspectRatio: 1,
+  color: common.fullWhite,
   disableError: false,
   disableSpinner: false,
   errorSize: 48,
@@ -150,7 +135,7 @@ Image.propTypes = {
   /** Override the inline-styles of the refresh indicator. */
   loadingStyle: PropTypes.object,
   /** Fired when the user clicks on the image happened. */
-  onTouchTap: PropTypes.func,
+  onClick: PropTypes.func,
   /** Override the inline-styles of the root element. */
   style: PropTypes.object
 }

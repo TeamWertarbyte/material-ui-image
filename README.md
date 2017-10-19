@@ -45,7 +45,7 @@ render() {
 |imageStyle      | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
 |loadingSize     | `integer`  | 40                                       | Set the size of the refresh indicator.
 |loadingStyle    | `object`   | { position: 'relative' }                 | Override the inline-styles of the refresh indicator.
-|onTouchTap      | `func`     |                                          | Fired when the user clicks on the image happened.
+|onClick         | `func`     |                                          | Fired when the user clicks on the image happened.
 |style           | `object`   | { width: 300, height: 200 }              | Override the inline-styles of the root element.
 
 \* required property
