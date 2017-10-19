@@ -19,7 +19,7 @@ export default class Image extends Component {
     const {
       aspectRatio,
       color,
-      errorSize,
+      imageStyle,
       style
     } = this.props
 
@@ -37,11 +37,8 @@ export default class Image extends Component {
         animation: !this.state.imageLoaded ? '' : 'filter-animation 1s',
         position: 'absolute',
         top: 0,
-        left: 0
-      },
-      errorIcon: {
-        width: errorSize,
-        height: errorSize
+        left: 0,
+        ...imageStyle
       }
     }
 
@@ -72,10 +69,7 @@ export default class Image extends Component {
       >
         {image.src && !this.state.imageError ? <img
           {...image}
-          style={{
-            ...styles.image,
-            ...imageStyle
-          }}
+          style={styles.image}
           onLoad={() => this.setState({imageLoaded: true})}
           onError={() => this.setState({imageError: true})}
         /> : <div style={{
@@ -90,9 +84,7 @@ export default class Image extends Component {
         }}>
           {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <CircularProgress
             size={loadingSize}
-            style={{
-              ...loadingStyle
-            }}
+            style={loadingStyle}
           />}
           {!disableError && this.state.imageError && errorIcon}
         </div>}
