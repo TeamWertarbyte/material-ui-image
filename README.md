@@ -8,9 +8,18 @@ Images are ugly until they're loaded. Materialize it with material image! It wil
 ![Example](demo.gif)
 
 ## Installation
-```shell
-npm i --save material-ui-image
+
+**Stable channel**
+```sh
+npm install material-ui-image
 ```
+
+**Pre-release channel**
+```sh
+npm install material-ui-image@next
+```
+
+Please note that `@next` will only point to pre-releases; to get the latest stable release use `@latest` instead.
 
 ## Usage
 
