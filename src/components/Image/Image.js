@@ -12,7 +12,10 @@ import { BrokenImage } from 'material-ui-icons'
 export default class Image extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      imageError: false,
+      imageLoaded: false
+    }
   }
 
   getStyles () {
@@ -68,12 +71,13 @@ export default class Image extends Component {
         style={styles.root}
         onClick={onClick}
       >
-        {image.src && !this.state.imageError ? <img
+        {image.src && <img
           {...image}
           style={styles.image}
           onLoad={() => this.setState({imageLoaded: true})}
           onError={() => this.setState({imageError: true})}
-        /> : <div style={{
+        />}
+        <div style={{
           width: '100%',
           height: '100%',
           position: 'absolute',
@@ -85,7 +89,7 @@ export default class Image extends Component {
         }}>
           {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && loading}
           {!disableError && this.state.imageError && errorIcon}
-        </div>}
+        </div>
       </div>
     )
   }
