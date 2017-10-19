@@ -56,8 +56,7 @@ export default class Image extends Component {
       errorIcon,
       imageStyle,
       style,
-      loadingSize,
-      loadingStyle,
+      loading,
       onClick,
       ...image
     } = this.props
@@ -82,10 +81,7 @@ export default class Image extends Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && <CircularProgress
-            size={loadingSize}
-            style={loadingStyle}
-          />}
+          {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && loading}
           {!disableError && this.state.imageError && errorIcon}
         </div>}
       </div>
@@ -99,7 +95,7 @@ Image.defaultProps = {
   disableError: false,
   disableSpinner: false,
   errorIcon: <BrokenImage color={grey[300]} style={{width: 48, height: 48}} />,
-  loadingSize: 40
+  loading: <CircularProgress size={48} />
 }
 
 Image.propTypes = {
@@ -117,10 +113,8 @@ Image.propTypes = {
   errorIcon: PropTypes.node,
   /** Override the inline-styles of the image. */
   imageStyle: PropTypes.object,
-  /** Set the size of the refresh indicator. */
-  loadingSize: PropTypes.number,
-  /** Override the inline-styles of the refresh indicator. */
-  loadingStyle: PropTypes.object,
+  /** Override the loading component. */
+  loading: PropTypes.node,
   /** Fired when the user clicks on the image happened. */
   onClick: PropTypes.func,
   /** Override the inline-styles of the root element. */

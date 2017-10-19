@@ -43,8 +43,7 @@ render() {
 |disableSpinner  | `bool`     | false                                    | Disables the loading spinner if set to `true`.
 |errorIcon       | `node`     | <BrokenImage />                          | Override the error icon.
 |imageStyle      | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
-|loadingSize     | `integer`  | 40                                       | Set the size of the refresh indicator.
-|loadingStyle    | `object`   |                                          | Override the inline-styles of the refresh indicator.
+|loading         | `node`     | <CircularProgress size={48} />           | Override the loading component.
 |onClick         | `func`     |                                          | Fired when the user clicks on the image happened.
 |style           | `object`   |                                          | Override the inline-styles of the root element.
 
