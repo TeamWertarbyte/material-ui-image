@@ -5,7 +5,7 @@
 
 Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
 
-See this component in [action](https://teamwertarbyte.github.io/material-ui-image)
+See this component in [action](https://mui.wertarbyte.com/#material-ui-image)
 
 ## Installation
 ```shell
