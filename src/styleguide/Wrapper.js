@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { MuiThemeProvider } from 'material-ui/styles'
+import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles'
+
+const theme = createMuiTheme({})
 
 export default class Wrapper extends Component {
   render () {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider theme={theme}>
         <div style={{fontFamily: 'Roboto, sans-serif'}}>
           {this.props.children}
         </div>
