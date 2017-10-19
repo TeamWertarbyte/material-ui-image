@@ -56,7 +56,7 @@ export default class Image extends Component {
       color,
       disableError,
       disableSpinner,
-      errorSize,
+      errorIcon,
       imageStyle,
       style,
       loadingSize,
@@ -94,12 +94,7 @@ export default class Image extends Component {
               ...loadingStyle
             }}
           />}
-          {!disableError && this.state.imageError &&
-          <BrokenImage
-            color={grey[300]}
-            style={styles.errorIcon}
-          />
-          }
+          {!disableError && this.state.imageError && errorIcon}
         </div>}
       </div>
     )
@@ -111,7 +106,7 @@ Image.defaultProps = {
   color: common.fullWhite,
   disableError: false,
   disableSpinner: false,
-  errorSize: 48,
+  errorIcon: <BrokenImage color={grey[300]} style={{width: 48, height: 48}} />,
   loadingSize: 40
 }
 
@@ -126,8 +121,8 @@ Image.propTypes = {
   disableError: PropTypes.bool,
   /** Disables the loading spinner if set to true. */
   disableSpinner: PropTypes.bool,
-  /** Set the size of the error icon. */
-  errorSize: PropTypes.number,
+  /** Override the error icon. */
+  errorIcon: PropTypes.node,
   /** Override the inline-styles of the image. */
   imageStyle: PropTypes.object,
   /** Set the size of the refresh indicator. */
