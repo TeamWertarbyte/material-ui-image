@@ -1,7 +1,7 @@
 Normal:
 ```
     <Image
-      src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Salzburg_from_Gaisberg_big_version.jpg"
+      src="http://loremflickr.com/300/200"
       onClick={() => console.log('onTouchTap')}
       aspectRatio={(3/2)}
     />
