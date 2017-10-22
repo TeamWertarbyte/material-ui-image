@@ -6,7 +6,7 @@ import grey from 'material-ui/colors/grey'
 import { BrokenImage } from 'material-ui-icons'
 
 /**
- * Images are ugly until they're loaded. Materialize it with material image! It will show a random material color as background and a loading animation until it's fully loaded.
+ * Images are ugly until they're loaded. Materialize it with material image! It will fade in like the material image loading pattern suggests.
  * @see [Image loading patterns](https://material.io/guidelines/patterns/loading-images.html)
  */
 export default class Image extends Component {
@@ -15,6 +15,15 @@ export default class Image extends Component {
     this.state = {
       imageError: false,
       imageLoaded: false
+    }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.src !== nextProps.src) {
+      this.setState({
+        imageError: false,
+        imageLoaded: false
+      })
     }
   }
 
