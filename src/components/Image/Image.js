@@ -32,8 +32,16 @@ export default class Image extends Component {
       aspectRatio,
       color,
       imageStyle,
+      disableTransition,
       style
     } = this.props
+
+    const imageTransition = !disableTransition && {
+      opacity: !this.state.imageLoaded ? 0 : 1,
+      filterBrightness: !this.state.imageLoaded ? 0 : 100,
+      filterSaturate: !this.state.imageLoaded ? 20 : 100,
+      transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)',
+    }
 
     const styles = {
       root: {
@@ -45,13 +53,10 @@ export default class Image extends Component {
       image: {
         width: '100%',
         height: '100%',
-        opacity: !this.state.imageLoaded ? 0 : 1,
-        filterBrightness: !this.state.imageLoaded ? 0 : 100,
-        filterSaturate: !this.state.imageLoaded ? 20 : 100,
-        transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)',
         position: 'absolute',
         top: 0,
         left: 0,
+        ...imageTransition,
         ...imageStyle
       }
     }
@@ -67,6 +72,7 @@ export default class Image extends Component {
       color,
       disableError,
       disableSpinner,
+      disableTransition,
       errorIcon,
       imageStyle,
       style,
@@ -109,6 +115,7 @@ Image.defaultProps = {
   color: common.fullWhite,
   disableError: false,
   disableSpinner: false,
+  disableTransition: false,
   errorIcon: <BrokenImage color={grey[300]} style={{width: 48, height: 48}} />,
   loading: <CircularProgress size={48} />
 }
@@ -124,6 +131,8 @@ Image.propTypes = {
   disableError: PropTypes.bool,
   /** Disables the loading spinner if set to true. */
   disableSpinner: PropTypes.bool,
+  /** Disables the transition after load if set to true. */
+  disableTransition: PropTypes.bool,
   /** Override the error icon. */
   errorIcon: PropTypes.node,
   /** Override the inline-styles of the image. */
