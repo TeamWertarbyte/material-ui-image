@@ -11,9 +11,8 @@ initialState = {
     onClick={() => console.log('onClick')}
     aspectRatio={(16/9)}
     disableSpinner
-    disableTransition
   />
-  <Button raised onClick={() => setState({foo: !state.foo})}>
+  <Button variant='raised' onClick={() => setState({foo: !state.foo})}>
     Reload
   </Button>
 </div>
@@ -23,6 +22,7 @@ Loading:
 ```
 <Image
   onClick={() => console.log('onClick')}
+  src=''
   aspectRatio={(16/9)}
 />
 ```
