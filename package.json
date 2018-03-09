@@ -9,7 +9,8 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "publish-docs": "npm run styleguide:build && npm run gh-pages",
-    "gh-pages": "./node_modules/.bin/gh-pages -d styleguide"
+    "gh-pages": "./node_modules/.bin/gh-pages -d styleguide",
+    "test": "standard"
   },
   "repository": {
     "type": "git",
@@ -43,14 +44,15 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "gh-pages": "^1.1.0",
-    "material-ui": "^1.0.0-beta.26",
+    "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-styleguidist": "^6.1.0"
+    "react-styleguidist": "^6.1.0",
+    "standard": "^11.0.0"
   },
   "peerDependencies": {
-    "material-ui": "1.x",
+    "material-ui": "^1.0.0-beta.36",
     "react": "16.x"
   },
   "dependencies": {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { CircularProgress } from 'material-ui'
+import CircularProgress from 'material-ui/Progress/CircularProgress'
 import common from 'material-ui/colors/common'
 import grey from 'material-ui/colors/grey'
-import { BrokenImage } from 'material-ui-icons'
+import BrokenImage from 'material-ui-icons/BrokenImage'
 
 /**
  * Images are ugly until they're loaded. Materialize it with material image! It will fade in like the material image loading pattern suggests.
@@ -40,7 +40,7 @@ export default class Image extends Component {
       opacity: !this.state.imageLoaded ? 0 : 1,
       filterBrightness: !this.state.imageLoaded ? 0 : 100,
       filterSaturate: !this.state.imageLoaded ? 20 : 100,
-      transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)',
+      transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)'
     }
 
     const styles = {
@@ -68,14 +68,14 @@ export default class Image extends Component {
     const styles = this.getStyles()
 
     const {
-      aspectRatio,
-      color,
+      aspectRatio, // eslint-disable-line
+      color, // eslint-disable-line
       disableError,
       disableSpinner,
-      disableTransition,
+      disableTransition, // eslint-disable-line
       errorIcon,
-      imageStyle,
-      style,
+      imageStyle, // eslint-disable-line
+      style, // eslint-disable-line
       loading,
       onClick,
       ...image
@@ -112,7 +112,7 @@ export default class Image extends Component {
 
 Image.defaultProps = {
   aspectRatio: 1,
-  color: common.fullWhite,
+  color: common.white,
   disableError: false,
   disableSpinner: false,
   disableTransition: false,
