@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import CircularProgress from 'material-ui/Progress/CircularProgress'
 import common from 'material-ui/colors/common'
 import grey from 'material-ui/colors/grey'
-import BrokenImage from 'material-ui-icons/BrokenImage'
+import BrokenImage from '@material-ui/icons/BrokenImage'
 
 /**
  * Images are ugly until they're loaded. Materialize it with material image! It will fade in like the material image loading pattern suggests.

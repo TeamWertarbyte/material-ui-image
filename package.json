@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/TeamWertarbyte/material-ui-image#readme",
   "devDependencies": {
+    "@material-ui/icons": "^1.0.0-beta.42",
     "@webpack-blocks/babel6": "^0.4.1",
     "@webpack-blocks/postcss": "^0.4.3",
     "@webpack-blocks/webpack2": "^0.4.0",
@@ -44,15 +45,15 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "gh-pages": "^1.1.0",
-    "material-ui": "^1.0.0-beta.36",
-    "material-ui-icons": "^1.0.0-beta.17",
+    "material-ui": "^1.0.0-beta.42",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-styleguidist": "^6.1.0",
     "standard": "^11.0.0"
   },
   "peerDependencies": {
-    "material-ui": "^1.0.0-beta.36",
+    "@material-ui/icons": "^1.0.0-beta.42",
+    "material-ui": "^1.0.0-beta.42",
     "react": "16.x"
   },
   "dependencies": {
