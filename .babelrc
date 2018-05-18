@@ -5,7 +5,7 @@
     "stage-0"
   ],
   "plugins": [
-    ["direct-import", ["material-ui", "@material-ui/icons"]],
+    ["direct-import", ["@material-ui/core", "@material-ui/icons"]],
     "transform-runtime",
     "transform-decorators-legacy"
   ]
