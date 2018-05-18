@@ -9,17 +9,11 @@ Images are ugly until they're loaded. Materialize it with material image! It wil
 
 ## Installation
 
-**Stable channel**
 ```sh
 npm install material-ui-image
 ```
 
-**Pre-release channel**
-```sh
-npm install material-ui-image@next
-```
-
-Please note that `@next` will only point to pre-releases; to get the latest stable release use `@latest` instead.
+**Note:** This is the version for Material-UI 1.0.0-rc.0 or later. If you are using Material-UI 1.0.0-beta, you should update to the latest version. If you are still using Material-UI 0.x, you can use our [legacy version][legacy].
 
 ## Usage
 
@@ -62,3 +56,5 @@ render() {
 ## License
 
 The files included in this repository are licensed under the MIT license.
+
+[legacy]: https://github.com/TeamWertarbyte/material-ui-image/tree/legacy
