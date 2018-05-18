@@ -1,6 +1,6 @@
 Normal:
 ```
-const { Button } = require('material-ui');
+const { Button } = require('@material-ui/core');
 initialState = {
   foo: false
 };
