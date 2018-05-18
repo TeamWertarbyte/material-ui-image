@@ -9,8 +9,10 @@ See this component in [action](https://teamwertarbyte.github.io/material-ui-imag
 
 ## Installation
 ```shell
-npm i --save material-ui-image
+npm i --save material-ui-image@legacy
 ```
+
+**Note:** This is the version for Material-UI 0.x. If you are using Material-UI 1.0.0-rc.0 or later, please use the [stable version][stable].
 
 ## Usage
 
@@ -53,3 +55,5 @@ render() {
 ## License
 
 The files included in this repository are licensed under the MIT license.
+
+[stable]: https://github.com/TeamWertarbyte/material-ui-image
