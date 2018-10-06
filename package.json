@@ -37,6 +37,7 @@
     "@webpack-blocks/webpack2": "^0.4.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.18.2",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^6.2.8",
     "babel-plugin-direct-import": "^0.4.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -50,7 +51,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-styleguidist": "^7.0.14",
-    "standard": "^11.0.0"
+    "standard": "^12.0.1"
   },
   "peerDependencies": {
     "@material-ui/icons": "^1.0.0 || ^3.0.0",
@@ -59,5 +60,8 @@
   },
   "dependencies": {
     "prop-types": "^15.5.8"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }

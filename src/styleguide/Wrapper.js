@@ -7,7 +7,7 @@ export default class Wrapper extends Component {
   render () {
     return (
       <MuiThemeProvider theme={theme}>
-        <div style={{fontFamily: 'Roboto, sans-serif'}}>
+        <div style={{ fontFamily: 'Roboto, sans-serif' }}>
           {this.props.children}
         </div>
       </MuiThemeProvider>

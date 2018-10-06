@@ -37,9 +37,9 @@ export default class Image extends Component {
     } = this.props
 
     const imageTransition = !disableTransition && {
-      opacity: !this.state.imageLoaded ? 0 : 1,
-      filterBrightness: !this.state.imageLoaded ? 0 : 100,
-      filterSaturate: !this.state.imageLoaded ? 20 : 100,
+      opacity: this.state.imageLoaded ? 1 : 0,
+      filterBrightness: this.state.imageLoaded ? 100 : 0,
+      filterSaturate: this.state.imageLoaded ? 100 : 20,
       transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)'
     }
 
@@ -62,6 +62,16 @@ export default class Image extends Component {
     }
 
     return styles
+  }
+
+  handleLoadImage = () => {
+    this.setState({ imageLoaded: true })
+  }
+
+  handleImageError = () => {
+    if (this.props.src) {
+      this.setState({ imageError: true })
+    }
   }
 
   render () {
@@ -89,8 +99,8 @@ export default class Image extends Component {
         {image.src && <img
           {...image}
           style={styles.image}
-          onLoad={() => this.setState({imageLoaded: true})}
-          onError={() => this.setState({imageError: true})}
+          onLoad={this.handleLoadImage}
+          onError={this.handleImageError}
         />}
         <div style={{
           width: '100%',
@@ -116,7 +126,7 @@ Image.defaultProps = {
   disableError: false,
   disableSpinner: false,
   disableTransition: false,
-  errorIcon: <BrokenImage style={{width: 48, height: 48, color: grey[300]}} />,
+  errorIcon: <BrokenImage style={{ width: 48, height: 48, color: grey[300] }} />,
   loading: <CircularProgress size={48} />
 }
 
