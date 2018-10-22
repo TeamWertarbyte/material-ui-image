@@ -3,9 +3,10 @@
   "version": "3.0.1",
   "description": "Material style image with loading animation",
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "build": "babel src -d lib",
-    "prepublish": "babel src -d lib",
+    "build": "babel src -d lib --copy-files",
+    "prepublish": "babel src -d lib --copy-files",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "publish-docs": "npm run styleguide:build && npm run gh-pages",
