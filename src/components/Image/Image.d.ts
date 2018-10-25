@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 export interface ImageProps {
     src: string,
     aspectRatio?: number,
@@ -11,3 +12,5 @@ export interface ImageProps {
     onClick?: (event:React.MouseEvent<HTMLElement> ) => any,
     style?: object
 }
+const ImageComponent: React.ComponentType<ImageProps>;
+export default ImageComponent;
