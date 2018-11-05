@@ -12,5 +12,5 @@ export interface ImageProps {
     onClick?: (event:React.MouseEvent<HTMLElement> ) => any,
     style?: object
 }
-const ImageComponent: React.ComponentType<ImageProps>;
+declare const ImageComponent: React.ComponentType<ImageProps>;
 export default ImageComponent;
