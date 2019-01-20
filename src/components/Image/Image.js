@@ -40,7 +40,7 @@ export default class Image extends Component {
       opacity: this.state.imageLoaded ? 1 : 0,
       filterBrightness: this.state.imageLoaded ? 100 : 0,
       filterSaturate: this.state.imageLoaded ? 100 : 20,
-      transition: 'filterBrightness 2.5s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1)'
+      transition: 'filterBrightness 2.25s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 1.5s cubic-bezier(0.4, 0.0, 0.2, 1)'
     }
 
     const styles = {
@@ -78,14 +78,14 @@ export default class Image extends Component {
     const styles = this.getStyles()
 
     const {
-      aspectRatio, // eslint-disable-line
-      color, // eslint-disable-line
+      aspectRatio,
+      color,
       disableError,
       disableSpinner,
-      disableTransition, // eslint-disable-line
+      disableTransition,
       errorIcon,
-      imageStyle, // eslint-disable-line
-      style, // eslint-disable-line
+      imageStyle,
+      style,
       loading,
       onClick,
       ...image
