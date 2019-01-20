@@ -29,6 +29,7 @@ export default class Image extends Component {
 
   getStyles () {
     const {
+      animationDuration,
       aspectRatio,
       color,
       imageStyle,
@@ -40,7 +41,10 @@ export default class Image extends Component {
       opacity: this.state.imageLoaded ? 1 : 0,
       filterBrightness: this.state.imageLoaded ? 100 : 0,
       filterSaturate: this.state.imageLoaded ? 100 : 20,
-      transition: 'filterBrightness 2.25s cubic-bezier(0.4, 0.0, 0.2, 1), filterSaturate 3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 1.5s cubic-bezier(0.4, 0.0, 0.2, 1)'
+      transition: `
+        filterBrightness ${animationDuration * 0.75}ms cubic-bezier(0.4, 0.0, 0.2, 1),
+        filterSaturate ${animationDuration}ms cubic-bezier(0.4, 0.0, 0.2, 1),
+        opacity ${animationDuration / 2}ms cubic-bezier(0.4, 0.0, 0.2, 1)`
     }
 
     const styles = {
@@ -78,6 +82,7 @@ export default class Image extends Component {
     const styles = this.getStyles()
 
     const {
+      animationDuration,
       aspectRatio,
       color,
       disableError,
@@ -122,6 +127,7 @@ export default class Image extends Component {
 }
 
 Image.defaultProps = {
+  animationDuration: 3000,
   aspectRatio: 1,
   color: common.white,
   disableError: false,
@@ -132,8 +138,8 @@ Image.defaultProps = {
 }
 
 Image.propTypes = {
-  /** Specifies the URL of an image. */
-  src: PropTypes.string.isRequired,
+  /** Duration of the fading animation, in milliseconds. */
+  animationDuration: PropTypes.number,
   /** Override aspect ratio. */
   aspectRatio: PropTypes.number,
   /** Override the background color. */
@@ -152,6 +158,8 @@ Image.propTypes = {
   loading: PropTypes.node,
   /** Fired when the user clicks on the image happened. */
   onClick: PropTypes.func,
+  /** Specifies the URL of an image. */
+  src: PropTypes.string.isRequired,
   /** Override the inline-styles of the root element. */
   style: PropTypes.object
 }

@@ -37,9 +37,9 @@ render() {
 
 ### Material UI Image Properties
 
-|Name            |Type        |Default                                   |Description
-|----------------|------------|------------------------------------------|--------------------------------
-|src*              | `string`   |                                          | Specifies the URL of an image.
+|Name              |Type        |Default                                   |Description
+|------------------|------------|------------------------------------------|--------------------------------
+|animationDuration | `number`   | 3000                                     | Duration of the fading animation, in milliseconds.
 |aspectRatio       | `float`    | (1/1)                                    | Specifies the aspect ratio of the image.
 |color             | `string`   | white                                    | Override the background color.
 |disableError      | `bool`     | false                                    | Disables the error icon if set to `true`.
@@ -49,6 +49,7 @@ render() {
 |imageStyle        | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
 |loading           | `node`     | <CircularProgress size={48} />           | Override the loading component.
 |onClick           | `func`     |                                          | Fired when the user clicks on the image happened.
+|src*              | `string`   |                                          | Specifies the URL of an image.
 |style             | `object`   |                                          | Override the inline-styles of the root element.
 
 \* required property
