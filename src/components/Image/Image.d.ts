@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 export interface ImageProps {
-    src: string,
+    animationDuration?: number,
     aspectRatio?: number,
     color?: string,
     disableError?: boolean,
@@ -10,6 +10,7 @@ export interface ImageProps {
     imageStyle?: object,
     loading?: ReactNode,
     onClick?: (event:React.MouseEvent<HTMLElement> ) => any,
+    src: string,
     style?: object
 }
 declare const ImageComponent: React.ComponentType<ImageProps>;
