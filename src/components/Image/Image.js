@@ -110,7 +110,8 @@ export default class Image extends Component {
           left: 0,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          pointerEvents: 'none'
         }}>
           {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && loading}
           {!disableError && this.state.imageError && errorIcon}
