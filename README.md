@@ -1,7 +1,6 @@
 # Material UI Image
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-image.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-image)
-[![Greenkeeper badge](https://badges.greenkeeper.io/TeamWertarbyte/material-ui-image.svg)](https://greenkeeper.io/)
 
 Images are ugly until they're loaded. Materialize it with material image! It will fade in like the material image loading pattern suggests.
 
