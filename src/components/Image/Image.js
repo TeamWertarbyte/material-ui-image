@@ -70,11 +70,17 @@ export default class Image extends Component {
 
   handleLoadImage = () => {
     this.setState({ imageLoaded: true })
+    if (this.props.onLoad) {
+      this.props.onLoad()
+    }
   }
 
   handleImageError = () => {
     if (this.props.src) {
       this.setState({ imageError: true })
+      if (this.props.onError) {
+        this.props.onError()
+      }
     }
   }
 
@@ -158,6 +164,10 @@ Image.propTypes = {
   loading: PropTypes.node,
   /** Fired when the user clicks on the image happened. */
   onClick: PropTypes.func,
+  /** Fired when the image failed to load. */
+  onError: PropTypes.func,
+  /** Fired when the image finished loading. */
+  onLoad: PropTypes.func,
   /** Specifies the URL of an image. */
   src: PropTypes.string.isRequired,
   /** Override the inline-styles of the root element. */
