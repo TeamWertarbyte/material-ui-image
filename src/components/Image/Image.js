@@ -34,6 +34,7 @@ export default class Image extends Component {
       color,
       imageStyle,
       disableTransition,
+      iconContainerStyle,
       style
     } = this.props
 
@@ -62,6 +63,18 @@ export default class Image extends Component {
         left: 0,
         ...imageTransition,
         ...imageStyle
+      },
+      iconContainer: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        pointerEvents: 'none',
+        ...iconContainerStyle
       }
     }
 
@@ -113,17 +126,7 @@ export default class Image extends Component {
           onLoad={this.handleLoadImage}
           onError={this.handleImageError}
         />}
-        <div style={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          pointerEvents: 'none'
-        }}>
+        <div style={styles.iconContainer}>
           {!disableSpinner && !this.state.imageLoaded && !this.state.imageError && loading}
           {!disableError && this.state.imageError && errorIcon}
         </div>
@@ -158,6 +161,8 @@ Image.propTypes = {
   disableTransition: PropTypes.bool,
   /** Override the error icon. */
   errorIcon: PropTypes.node,
+  /** Override the inline-styles of the container that contains the loading spinner and the error icon. */
+  iconContainerStyle: PropTypes.object,
   /** Override the inline-styles of the image. */
   imageStyle: PropTypes.object,
   /** Override the loading component. */
