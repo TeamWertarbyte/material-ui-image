@@ -49,6 +49,7 @@ render() {
 |imageStyle         | `object`   | { width: 'inherit', height: 'inherit' }  | Override the inline-styles of the image.
 |loading            | `node`     | <CircularProgress size={48} />           | Override the loading component.
 |onClick            | `func`     |                                          | Fired when the user clicks on the image happened.
+|altText*           | `string`   |                                          | Image description for screen readers.
 |src*               | `string`   |                                          | Specifies the URL of an image.
 |style              | `object`   |                                          | Override the inline-styles of the root element.
 

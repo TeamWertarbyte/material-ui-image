@@ -15,6 +15,7 @@ reload = () => {
   <Image
     src={state.show ? `https://i.ytimg.com/vi/yaqe1qesQ8c/maxresdefault.jpg?_=${state.count}` : ''}
     onClick={() => console.log('onClick')}
+    altText="Sample Image"
     aspectRatio={(16/9)}
     disableSpinner
   />
@@ -29,6 +30,8 @@ Loading:
 <Image
   onClick={() => console.log('onClick')}
   src=''
+  altText="loading state"
+
   aspectRatio={(16/9)}
 />
 ```
@@ -38,6 +41,7 @@ Error:
 <Image
   src="http://lorempixels.com/1600/900/nature/"
   onClick={() => console.log('onClick')}
+  altText="error state"
   aspectRatio={(16/9)}
 />
 ```

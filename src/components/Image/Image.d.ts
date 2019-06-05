@@ -11,6 +11,7 @@ export interface ImageProps {
     loading?: ReactNode,
     onClick?: (event:React.MouseEvent<HTMLElement> ) => any,
     src: string,
+    altText: string,
     style?: object
 }
 declare const ImageComponent: React.ComponentType<ImageProps>;

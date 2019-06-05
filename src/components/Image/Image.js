@@ -109,6 +109,7 @@ export default class Image extends Component {
       disableTransition,
       errorIcon,
       imageStyle,
+      altText,
       style,
       loading,
       onClick,
@@ -122,6 +123,7 @@ export default class Image extends Component {
       >
         {image.src && <img
           {...image}
+          alt={altText}
           style={styles.image}
           onLoad={this.handleLoadImage}
           onError={this.handleImageError}
@@ -175,6 +177,8 @@ Image.propTypes = {
   onLoad: PropTypes.func,
   /** Specifies the URL of an image. */
   src: PropTypes.string.isRequired,
+  /** Specifies the alternative text for accessibility */
+  altText: PropTypes.string.isRequired,
   /** Override the inline-styles of the root element. */
   style: PropTypes.object
 }
