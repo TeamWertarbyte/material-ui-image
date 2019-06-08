@@ -54,6 +54,8 @@ render() {
 
 \* required property
 
+All other props are passed through to the underlying `img` element after the image is loaded.
+
 ## License
 
 The files included in this repository are licensed under the MIT license.
