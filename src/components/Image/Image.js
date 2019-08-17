@@ -14,12 +14,13 @@ export default class Image extends Component {
     super(props)
     this.state = {
       imageError: false,
-      imageLoaded: false
+      imageLoaded: false,
+      src: this.props.src,
     }
   }
 
-  static getDerivedStateFromProps(nextProps) {
-    if (this.props.src !== nextProps.src){
+  static getDerivedStateFromProps(nextProps, currentState) {
+    if (currentState.src !== nextProps.src) {
       return {
         imageError: false,
         imageLoaded: false
