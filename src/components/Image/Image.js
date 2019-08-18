@@ -15,17 +15,19 @@ export default class Image extends Component {
     this.state = {
       imageError: false,
       imageLoaded: false,
-      src: this.props.src,
+      src: this.props.src
     }
   }
 
-  static getDerivedStateFromProps(nextProps, currentState) {
-    if (currentState.src !== nextProps.src) {
+  static getDerivedStateFromProps (props, state) {
+    if (state.src !== props.src) {
       return {
         imageError: false,
-        imageLoaded: false
+        imageLoaded: false,
+        src: props.src
       }
     }
+    return null
   }
 
   getStyles () {
