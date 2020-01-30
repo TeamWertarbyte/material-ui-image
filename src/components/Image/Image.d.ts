@@ -9,7 +9,9 @@ export interface ImageProps {
     errorIcon?: ReactNode,
     imageStyle?: object,
     loading?: ReactNode,
-    onClick?: (event:React.MouseEvent<HTMLElement> ) => any,
+    onClick?: (event:React.MouseEvent<HTMLDivElement> ) => void,
+    onLoad?: (event: React.SyntheticEvent<HTMLImageElement>) => void,
+    onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void,
     src: string,
     style?: object
 }
