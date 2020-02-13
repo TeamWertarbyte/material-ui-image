@@ -38,19 +38,20 @@
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^3.1.2",
     "@material-ui/icons": "^3.0.1",
-    "@webpack-blocks/babel6": "^0.4.1",
-    "@webpack-blocks/postcss": "^0.4.3",
-    "@webpack-blocks/webpack2": "^0.4.0",
+    "@webpack-blocks/babel": "^2.0.1",
+    "@webpack-blocks/webpack": "^2.0.1",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
     "gh-pages": "^1.1.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-styleguidist": "^7.3.9",
-    "standard": "^12.0.1"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-styleguidist": "^10.6.2",
+    "standard": "^12.0.1",
+    "webpack": "^4.41.6"
   },
   "peerDependencies": {
-    "@material-ui/icons": "^1.0.0 || ^3.0.0",
-    "@material-ui/core": "^1.0.0 || ^2.0.0 || ^3.0.0",
+    "@material-ui/icons": "^1.0.0 || ^3.0.0 || ^4.0.0",
+    "@material-ui/core": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0",
     "react": "^16.3.0"
   },
   "dependencies": {
