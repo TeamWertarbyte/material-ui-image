@@ -7,6 +7,7 @@ export interface ImageProps {
     disableSpinner?: boolean,
     disableTransition?: boolean,
     errorIcon?: ReactNode,
+    iconContainerStyle?: object,
     imageStyle?: object,
     loading?: ReactNode,
     onClick?: (event:React.MouseEvent<HTMLDivElement> ) => void,
