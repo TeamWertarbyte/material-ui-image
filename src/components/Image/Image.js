@@ -17,6 +17,7 @@ export default class Image extends Component {
       imageLoaded: false,
       src: this.props.src
     }
+    this.image = React.createRef()
   }
 
   static getDerivedStateFromProps (props, state) {
@@ -28,6 +29,18 @@ export default class Image extends Component {
       }
     }
     return null
+  }
+
+  componentDidMount () {
+    const img = this.image.current
+    if (img && img.complete) {
+      // image loaded before the component rendered (e.g. SSR), see #43 and #51
+      if (img.naturalWidth === 0) {
+        this.handleImageError()
+      } else {
+        this.handleLoadImage()
+      }
+    }
   }
 
   getStyles () {
@@ -125,6 +138,7 @@ export default class Image extends Component {
       >
         {image.src && <img
           {...image}
+          ref={this.image}
           style={styles.image}
           onLoad={this.handleLoadImage}
           onError={this.handleImageError}
