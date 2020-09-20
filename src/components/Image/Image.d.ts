@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'loading'> {
     animationDuration?: number,
     aspectRatio?: number,
     color?: string,
