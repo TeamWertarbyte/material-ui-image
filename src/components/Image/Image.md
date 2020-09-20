@@ -1,13 +1,14 @@
 Normal:
 ```
 const { Button } = require('@material-ui/core');
-initialState = {
+
+const [state, setState] = React.useState({
   count: 0,
   show: true
-};
+});
 
 reload = () => {
-  setState({ show: false })
+  setState(state => ({ ...state, show: false }))
   setTimeout(() => setState(state => ({ count: state.count + 1, show: true })), 500)
 }
 
@@ -36,7 +37,7 @@ Loading:
 Error:
 ```
 <Image
-  src="http://lorempixels.com/1600/900/nature/"
+  src="http://brokenimage"
   onClick={() => console.log('onClick')}
   aspectRatio={(16/9)}
 />
