@@ -97,18 +97,18 @@ export default class Image extends Component {
     return styles
   }
 
-  handleLoadImage = () => {
+  handleLoadImage = (e) => {
     this.setState({ imageLoaded: true })
     if (this.props.onLoad) {
-      this.props.onLoad()
+      this.props.onLoad(e)
     }
   }
 
-  handleImageError = () => {
+  handleImageError = (e) => {
     if (this.props.src) {
       this.setState({ imageError: true })
       if (this.props.onError) {
-        this.props.onError()
+        this.props.onError(e)
       }
     }
   }

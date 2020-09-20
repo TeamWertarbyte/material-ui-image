@@ -11,8 +11,8 @@ export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElemen
     imageStyle?: object,
     loading?: ReactNode,
     onClick?: (event:React.MouseEvent<HTMLDivElement> ) => void,
-    onLoad?: (event: React.SyntheticEvent<HTMLImageElement>) => void,
-    onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void,
+    onLoad?: (event?: React.SyntheticEvent<HTMLImageElement>) => void,
+    onError?: (event?: React.SyntheticEvent<HTMLImageElement>) => void,
     src: string,
     style?: object
 }
