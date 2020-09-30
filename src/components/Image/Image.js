@@ -47,6 +47,7 @@ export default class Image extends Component {
     const {
       animationDuration,
       aspectRatio,
+      cover,
       color,
       imageStyle,
       disableTransition,
@@ -75,6 +76,7 @@ export default class Image extends Component {
         width: '100%',
         height: '100%',
         position: 'absolute',
+        objectFit: cover ? 'cover' : 'inherit',
         top: 0,
         left: 0,
         ...imageTransition,
@@ -168,6 +170,8 @@ Image.propTypes = {
   animationDuration: PropTypes.number,
   /** Override aspect ratio. */
   aspectRatio: PropTypes.number,
+  /** Override the object fit to cover. */
+  cover: PropTypes.bool,
   /** Override the background color. */
   color: PropTypes.string,
   /** Disables the error icon if set to true. */
