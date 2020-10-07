@@ -21,17 +21,9 @@ Use this component just like a regular img tag.
 ```jsx
 import Image from 'material-ui-image'
 
-// ...
-
-function render() {
-  return (
-    <div>
-      <Image
-        src="http://loremflickr.com/300/200"
-      />
-    </div>
-  )
-}
+<Image
+  src="http://loremflickr.com/300/200"
+/>
 ```
 
 ### Material UI Image Properties
