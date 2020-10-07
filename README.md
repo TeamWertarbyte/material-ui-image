@@ -18,20 +18,12 @@ npm install material-ui-image
 
 Use this component just like a regular img tag.
 
-```js
+```jsx
 import Image from 'material-ui-image'
 
-// ...
-
-render() {
-  return (
-    <div>
-      <Image
-        src="http://loremflickr.com/300/200"
-      />
-    </div>
-  )
-}
+<Image
+  src="http://loremflickr.com/300/200"
+/>
 ```
 
 ### Material UI Image Properties
@@ -40,6 +32,7 @@ render() {
 |-------------------|------------|------------------------------------------|--------------------------------
 |animationDuration  | `number`   | 3000                                     | Duration of the fading animation, in milliseconds.
 |aspectRatio        | `float`    | (1/1)                                    | Specifies the aspect ratio of the image.
+|cover              | `bool`     | false                                    | Override the image's object fit to `cover`
 |color              | `string`   | white                                    | Override the background color.
 |disableError       | `bool`     | false                                    | Disables the error icon if set to `true`.
 |disableSpinner     | `bool`     | false                                    | Disables the loading spinner if set to `true`.
