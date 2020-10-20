@@ -126,10 +126,11 @@ export default class Image extends Component {
       disableSpinner,
       disableTransition,
       errorIcon,
+      iconContainerStyle,
       imageStyle,
-      style,
       loading,
       onClick,
+      style,
       ...image
     } = this.props
 
