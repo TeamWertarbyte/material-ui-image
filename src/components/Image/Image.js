@@ -122,6 +122,7 @@ export default class Image extends Component {
       animationDuration,
       aspectRatio,
       color,
+      cover,
       disableError,
       disableSpinner,
       disableTransition,
