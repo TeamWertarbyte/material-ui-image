@@ -1,1 +1,1 @@
-export { default } from './components/Image/Image';
+export { default, ImageProps } from './components/Image/Image';
